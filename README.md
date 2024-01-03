@@ -1,11 +1,8 @@
 # About EntryMaven
 
 Python short package aims to offer a simple and efficient customizable logger using the native Logging library.  
-*Designed exclusively to study the development and upload of Libraries.
 
-With this module, you can easily create records that automatically generate log files, allowing you to customize the names of these records files, which will be stored in the root of your project.
-
-Author: **Leonardo Cardillo**
+With this module, you can easily create records that automatically generate log files, allowing you to customize the names of these records files.
 
 ## Getting Started - Library
 

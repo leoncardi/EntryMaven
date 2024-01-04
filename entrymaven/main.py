@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +43,8 @@ class Essentials:
         
         file_path = filename
         if in_current_folder:
-            current_path = os.path.abspath(os.path.dirname(__file__))
+            calling_module = sys.modules['__main__'].__file__ if '__main__' in sys.modules else sys.argv[0]
+            current_path = os.path.abspath(os.path.dirname(calling_module))
             file_path = os.path.join(current_path, filename)
 
         file_handler = logging.FileHandler(file_path)

@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name='EntryMaven',
-    version='0.0.2',
+    version='0.0.3',
     license='MIT License',
     author='Leonardo Cardillo',
     long_description=readme,

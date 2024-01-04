@@ -1,4 +1,5 @@
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -7,7 +8,6 @@ class Essentials:
     
     Contains out-of-the-box default logger setups.
     """
-    standard_filename = 'entries.log'
     standard_level = 'DEBUG'
 
     def level_setter(level: str):
@@ -29,7 +29,7 @@ class Essentials:
             raise ValueError(f'Invalid log level: {level}')
 
     @classmethod
-    def gen(cls, filename: str = standard_filename, level: str = standard_level):
+    def gen(cls, filename: str = 'entries.log', level: str = standard_level, in_current_folder: bool = True):
         """main.Essentials.gen
         
         Simple and generalized log setup.      
@@ -40,7 +40,12 @@ class Essentials:
         
         cls.level_setter(level)
         
-        file_handler = logging.FileHandler(filename)
+        file_path = filename
+        if in_current_folder:
+            current_path = os.path.abspath(os.path.dirname(__file__))
+            file_path = os.path.join(current_path, filename)
+
+        file_handler = logging.FileHandler(file_path)
         console_handler = logging.StreamHandler()
 
         file_handler.setLevel(logging.getLevelName(level))
